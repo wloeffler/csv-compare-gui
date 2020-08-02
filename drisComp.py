@@ -1,8 +1,14 @@
 import csv
+from Info import inputInfo
 
-csvleg = open(r'C:\Users\wloeffler\PycharmProjects\DrisTest\venv\Cerner_-_Access_by_Patient_Lefeber Jerome_12-31-2019 - 01-01-2020 (1).csv')
-csvDRIS =open(r'C:\Users\wloeffler\PycharmProjects\DrisTest\venv\LegacyPatientLogUse.csv')
-outFile = csv.writer(open("missingData.csv", 'w'))
+
+
+def __init__(infoPasser):
+    csvleg = open(infoPasser.fileNameA)
+    csvDRIS = open(infoPasser.fileNameB)
+    outFile = csv.writer(open("missingData.csv", 'w'))
+
+
 
 """
 legacyCerner = csv.DictReader(csvleg)
