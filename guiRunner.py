@@ -51,12 +51,13 @@ def __clearInput(entryToBeCleared):
     entryToBeCleared.delete(0,'end')
     entryToBeCleared.insert(0,"")
 
-def __compare(input1, input2):
-    if(input1.get()=="" or input2.get()==""):
+def __compare(input1, input2, numberColumns):
+    if(input1.get()=="" or input2.get()=="" or numberColumns == 0):
         temp1 = tk.Label(window, text ="YOU DONE MESSED UP A-A-RON...\nPlease input a valid file path", fg = 'red').grid(row = 4,column = 0, columnspan = 2,sticky = "s")
 
     else:
-        infoPasser = inputInfo(input1.get(), input2.get())
+        numberOfCols = __numberOfColumns(numberColumns)
+        infoPasser = inputInfo(input1.get(), input2.get(), numberOfCols)
 
 
     return
@@ -70,9 +71,16 @@ def externalWindow(messageString,runningChar, specialMessage):
     label2 = tk.Label(externalWindowInstance, text = specialMessage).grid(row = 1, column = 0, sticky ='s')
     return
 
+#returns a list for the total number of columns to be compared
+def __numberOfColumns(num):
+    return list(range(0,(num-1)))
+
+
 
 
 #gui layout
+
+
 bbc = font.Font(weight = 'bold')
 inputBox1Label = tk.Label(window,text="Input CSV 1", font = bbc).grid(column=0, row=0, padx=10, pady=10)
 inputBox1 = ttk.Entry(window, width = 20)
@@ -85,8 +93,9 @@ inputBox2.grid(column=1, row=1, padx=10, pady=10)
 clearButton1 = tk.Button(text = "clear CSV 1", command = lambda:__clearInput(inputBox1)).grid(column= 0, row = 2, padx = 10, pady =5)
 clearButton2 = tk.Button(text = "clear CSV 2", command = lambda:__clearInput(inputBox2)).grid(column= 1, row = 2, padx = 10, pady =5)
 
+numberCol = tk.Label(window, text = "")
 
-runButton= tk.Button(text = "Compare", command = lambda: __compare(inputBox1, inputBox2), font = bbc).grid(row = 3,column = 0, columnspan = 2,sticky = "s")
+runButton= tk.Button(text = "Compare", command = lambda: __compare(inputBox1, inputBox2,), font = bbc).grid(row = 5,column = 0, columnspan = 2,sticky = "s")
 
 
 # starts the fun
