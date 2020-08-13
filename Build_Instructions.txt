@@ -3,6 +3,11 @@ To build into an .exe/ .app  is please enter the following commands into the pyt
 
 "pyinstaller --windowed --onefile guiRunner.py"
 
+Note: you will need pyinstaller installed, use the following if an error occurs, then try the above:
+
+"pip3 install pyinstaller"
+
 This should output an executable in the directory that you are currently in (and some other stuff that can be deleted)
 The executable is standalone and can be distributed
+
 
