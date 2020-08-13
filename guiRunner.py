@@ -54,14 +54,14 @@ def __clearInput(entryToBeCleared):
     entryToBeCleared.delete(0,'end')
     entryToBeCleared.insert(0,"")
 
-def __compare(input1, input2, numberColumns):
-    if(input1.get()=="" or input2.get()=="" or numberColumns == 0):
+def __compare(input1, input2):
+    if(input1.get()=="" or input2.get()==""):
         temp1 = tk.Label(window, text ="YOU DONE MESSED UP A-A-RON...\nPlease input a valid file path", fg = 'red').grid(row = 4,column = 0, columnspan = 2,sticky = "s")
 
     else:
-        numberOfCols = __numberOfColumns(numberColumns)
-        infoPasser = inputInfo(input1.get(), input2.get(), numberOfCols)
-        print(numberOfCols)
+       # numberOfCols = __numberOfColumns(numberColumns)
+        infoPasser = inputInfo(input1.get(), input2.get())
+
         #calls the comparison tool
         magicComparer = Comparer(infoPasser)
 
@@ -98,13 +98,16 @@ inputBox2.grid(column=1, row=1, padx=10, pady=10)
 clearButton1 = tk.Button(text = "clear CSV 1", command = lambda:__clearInput(inputBox1)).grid(column= 0, row = 2, padx = 10, pady =5)
 clearButton2 = tk.Button(text = "clear CSV 2", command = lambda:__clearInput(inputBox2)).grid(column= 1, row = 2, padx = 10, pady =5)
 
+'''
 numberColLabel = tk.Label(window, text = "Number of Columns").grid(column = 0, row =3, padx =5, pady = 5)
 numberColEntry = ttk.Combobox(window, values = DEFAULTRANGELIST)
 numberColEntry.grid(column = 1, row = 3, padx = 5, pady =5)
 
+'''
 
 
-runButton= tk.Button(text = "Compare", command = lambda: __compare(inputBox1, inputBox2,numberColEntry.get()), font = bbc).grid(row = 5,column = 0, columnspan = 2,sticky = "s")
+
+runButton= tk.Button(text = "Compare", command = lambda: __compare(inputBox1, inputBox2), font = bbc).grid(row = 5,column = 0, columnspan = 2,sticky = "s")
 
 
 # starts the fun

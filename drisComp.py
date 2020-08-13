@@ -8,7 +8,7 @@ class Comparer:
 
         csv1 = open(infoPasser.fileNameA)
         csv2 = open(infoPasser.fileNameB)
-        numColumns = infoPasser.numberOfColumns
+
         """
         legacyCerner = csv.DictReader(csvleg)
         drisExport = csv.DictReader(csvDRIS)
@@ -25,11 +25,11 @@ class Comparer:
             legAcyList.append(line)
 
         #calls the new comparision function
-        cls.runComparison(legAcyList,newList, numColumns)
+        cls.runComparison(legAcyList,newList)
         return
 
 
-    def runComparison(self,legList, newList, numColumns):
+    def runComparison(self,legList, newList):
         outFile = csv.writer(open("missingData.csv", 'w'))
         i = 0
         j = 0
