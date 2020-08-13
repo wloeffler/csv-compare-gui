@@ -5,8 +5,10 @@ from tkinter import ttk
 from tkinter import font
 from Info import inputInfo
 
-VERSIONNUMBER = 0.1
+VERSIONNUMBER = 0.69
 LASTUPDATED = "7/31/2020"
+DEFAULTRANGELIST = list(range(1,21))
+
 
 # inits the window
 window = tk.Tk()
@@ -93,9 +95,13 @@ inputBox2.grid(column=1, row=1, padx=10, pady=10)
 clearButton1 = tk.Button(text = "clear CSV 1", command = lambda:__clearInput(inputBox1)).grid(column= 0, row = 2, padx = 10, pady =5)
 clearButton2 = tk.Button(text = "clear CSV 2", command = lambda:__clearInput(inputBox2)).grid(column= 1, row = 2, padx = 10, pady =5)
 
-numberCol = tk.Label(window, text = "")
+numberColLabel = tk.Label(window, text = "Number of Columns").grid(column = 0, row =3, padx =5, pady = 5)
+numberColEntry = ttk.Combobox(window, values = DEFAULTRANGELIST)
+numberColEntry.grid(column = 1, row = 3, padx = 5, pady =5)
 
-runButton= tk.Button(text = "Compare", command = lambda: __compare(inputBox1, inputBox2,), font = bbc).grid(row = 5,column = 0, columnspan = 2,sticky = "s")
+
+
+runButton= tk.Button(text = "Compare", command = lambda: __compare(inputBox1, inputBox2,numberColEntry.get()), font = bbc).grid(row = 5,column = 0, columnspan = 2,sticky = "s")
 
 
 # starts the fun
