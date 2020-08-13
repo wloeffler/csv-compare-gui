@@ -1,0 +1,8 @@
+To build into an .exe/ .app  is please enter the following commands into the python terminal:
+(note this will build to support the machine's OS --linux is unteseted -- that you are on... pretty much)
+
+"pyinstaller --windowed --onefile guiRunner.py"
+
+This should output an executable in the directory that you are currently in (and some other stuff that can be deleted)
+The executable is standalone and can be distributed
+

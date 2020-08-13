@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import font
 from Info import inputInfo
+from drisComp import Comparer
 
 VERSIONNUMBER = 0.69
 LASTUPDATED = "7/31/2020"
@@ -60,7 +61,9 @@ def __compare(input1, input2, numberColumns):
     else:
         numberOfCols = __numberOfColumns(numberColumns)
         infoPasser = inputInfo(input1.get(), input2.get(), numberOfCols)
-
+        print(numberOfCols)
+        #calls the comparison tool
+        magicComparer = Comparer(infoPasser)
 
     return
 
@@ -75,7 +78,7 @@ def externalWindow(messageString,runningChar, specialMessage):
 
 #returns a list for the total number of columns to be compared
 def __numberOfColumns(num):
-    return list(range(0,(num-1)))
+    return list(range(0,(int(num)-1)))
 
 
 

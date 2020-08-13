@@ -25,7 +25,8 @@ class Comparer:
             legAcyList.append(line)
 
         #calls the new comparision function
-        cls.runComparison(legAcyList,newList)
+        cls.runComparison(legAcyList,newList, numColumns)
+        return
 
 
     def runComparison(self,legList, newList, numColumns):
@@ -50,7 +51,6 @@ class Comparer:
 
         #print(str(i) + '\t' + str(j))
 
-        outFile.close()
         return
 
 
